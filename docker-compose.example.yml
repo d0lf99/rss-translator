@@ -1,0 +1,16 @@
+services:
+  rss-translator:
+    build: .
+    container_name: rss-translator
+    restart: unless-stopped
+    environment:
+      - FRESHRSS_URL=https://your-freshrss-instance.com
+      - FRESHRSS_USER=your_username
+      - FRESHRSS_PASSWORD=your_password
+      - DEEPL_API_KEY=your-deepl-api-key
+      - TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+      - TELEGRAM_CHAT_ID=your-telegram-chat-id
+      - TZ=your_timezone
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
